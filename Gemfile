@@ -85,6 +85,7 @@ gem "canonical-rails"
 gem "solidus_support"
 gem "truncate_html"
 gem "view_component", "~> 2.46"
+gem 'solidus_stripe'
 
 group :test do
   gem "capybara-screenshot", "~> 1.0"
