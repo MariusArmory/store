@@ -13,6 +13,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <%= javascript_include_tag 'solidus_starter_frontend' %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbo-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbo-track': 'reload' %>
     <%= stylesheet_link_tag "tailwind", "data-turbo-track": "reload" %>
 
     <%= javascript_importmap_tags %>
