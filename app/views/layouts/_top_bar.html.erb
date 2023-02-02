@@ -1,7 +1,7 @@
 <div class="top-bar">
-  <figure class="logo">
-    <%= link_to image_tag(Spree::Config[:logo]), root_path %>
-  </figure>
+  <div class="text-3xl select-none">
+    Marius Armory
+  </div>
 
   <div class="top-bar__search">
     <%= render 'shared/search/search_bar', taxons: taxons, taxon: taxon %>

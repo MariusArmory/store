@@ -9,14 +9,14 @@
     <%= csrf_meta_tags %>
 
     <%= javascript_include_tag 'solidus_starter_frontend' %>
-    <%= stylesheet_link_tag 'solidus_starter_frontend', media: 'screen' %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
 
     <%= javascript_importmap_tags %>
 
     <%= favicon_link_tag 'favicon.ico' %>
     <%= yield :head %>
   </head>
-  <body class="<%= body_class %>" id="<%= @body_id || 'default' %>" data-turbo="false">
+  <body class="bg-gray-300 dark:bg-gray-900" id="<%= @body_id || 'default' %>" data-turbo="false">
     <%= render 'layouts/header', taxons: @taxons, taxon: @taxon %>
     <%= flash_messages %>
     <%= render BreadcrumbsComponent.new(@taxon) %>
