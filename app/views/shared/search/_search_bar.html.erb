@@ -16,11 +16,11 @@
     <%= select_tag(
       :taxon,
       options_for_select(options, selected),
-      class: "#{base_class}__select"
+      class: "select"
     ) %>
   <% end %>
 
-  <%= search_field_tag 'keywords', nil, placeholder: 'Search', class: "#{base_class}__input" %>
+  <%= search_field_tag 'keywords', nil, placeholder: 'Search', class: "input" %>
 
   <%= button_tag class: "#{base_class}__button", title: 'Search' do %>
     <svg class="<%= "#{base_class}__icon" %>" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
