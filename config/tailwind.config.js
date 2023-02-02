@@ -11,7 +11,8 @@ module.exports = {
     darkMode: 'class',
     extend: {
       fontFamily: {
-        sans: ['Inter var', ...defaultTheme.fontFamily.sans],
+        logo: ['Cinzel Decorative'],
+        sans: ['Open Sans', ...defaultTheme.fontFamily.sans],
       },
     },
   },

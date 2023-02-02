@@ -1,23 +1,19 @@
-<div class="flex justify-between items-center">
-  <div class="text-3xl select-none">
+<div class="flex justify-between items-center p-4">
+  <div class="text-3xl select-none font-logo">
     Marius Armory
   </div>
 
-  <div class="">
-    <%= render 'shared/search/search_bar', taxons: taxons, taxon: taxon %>
-  </div>
-
-  <% if spree_current_user %>
-    <%= link_to I18n.t('spree.my_account'), account_path, class: '' %>
-  <% else %>
-    <%= link_to I18n.t('spree.login'), login_path, class: '' %>
-  <% end %>
-
   <div>
-    <noscript>
-      <%= link_to t('spree.cart'), edit_cart_path, class: 'block' %>
-    </noscript>
+
+    <% if spree_current_user %>
+      <%= link_to I18n.t('spree.my_account'), account_path, class: '' %>
+    <% else %>
+      <%= link_to I18n.t('spree.login'), login_path, class: '' %>
+    <% end %>
+
+    <%= link_to t('spree.cart'), edit_cart_path, class: 'pl-4' %>
   </div>
+
 
   <script>
     Solidus.fetch_cart('<%= j cart_link_path %>')
