@@ -8,13 +8,16 @@ module.exports = {
     './app/views/**/*.{erb,haml,html,slim}'
   ],
   theme: {
+    darkMode: 'class',
     extend: {
       fontFamily: {
-        sans: ['Inter var', ...defaultTheme.fontFamily.sans],
+        logo: ['Cinzel Decorative'],
+        sans: ['Open Sans', ...defaultTheme.fontFamily.sans],
       },
     },
   },
   plugins: [
+    require("daisyui"),
     require('@tailwindcss/forms'),
     require('@tailwindcss/aspect-ratio'),
     require('@tailwindcss/typography'),

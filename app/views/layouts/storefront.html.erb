@@ -8,19 +8,25 @@
     <%= canonical_tag(current_store.url) %>
     <%= csrf_meta_tags %>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
     <%= javascript_include_tag 'solidus_starter_frontend' %>
-    <%= stylesheet_link_tag 'solidus_starter_frontend', media: 'screen' %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbo-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbo-track': 'reload' %>
+    <%= stylesheet_link_tag "tailwind", "data-turbo-track": "reload" %>
 
     <%= javascript_importmap_tags %>
 
     <%= favicon_link_tag 'favicon.ico' %>
     <%= yield :head %>
   </head>
-  <body class="<%= body_class %>" id="<%= @body_id || 'default' %>" data-turbo="false">
+  <body class="bg-neutral-300 dark:bg-neutral-900 text-gray-700 dark:text-gray-300 font-medium dark:font-light font-sans" id="<%= @body_id || 'default' %>" data-turbo="false">
     <%= render 'layouts/header', taxons: @taxons, taxon: @taxon %>
     <%= flash_messages %>
     <%= render BreadcrumbsComponent.new(@taxon) %>
-    <main>
+    <main class="mx-4 sm:mx-20 md:mx-28 lg:mx-44 min-h-screen">
       <%= yield %>
     </main>
     <%= render 'layouts/footer' %>

@@ -1,22 +1,18 @@
-<div class="top-bar">
-  <figure class="logo">
-    <%= link_to image_tag(Spree::Config[:logo]), root_path %>
-  </figure>
-
-  <div class="top-bar__search">
-    <%= render 'shared/search/search_bar', taxons: taxons, taxon: taxon %>
+<div class="flex justify-between items-center p-4 border-b-[0.01rem] border-gray-600">
+  <div class="text-3xl select-none font-logo">
+    Marius Armory
   </div>
 
-  <% if spree_current_user %>
-    <%= link_to I18n.t('spree.my_account'), account_path, class: 'auth-link' %>
-  <% else %>
-    <%= link_to I18n.t('spree.login'), login_path, class: 'auth-link' %>
-  <% end %>
+  <div>
 
-  <div class="cart-link" id="link-to-cart">
-    <noscript>
-      <%= link_to t('spree.cart'), edit_cart_path %>
-    </noscript>
+    <% if spree_current_user %>
+      <%= link_to I18n.t('spree.my_account'), account_path, class: '' %>
+    <% else %>
+      <%= link_to I18n.t('spree.login'), login_path, class: '' %>
+    <% end %>
+
+    <%= link_to t('spree.cart'), edit_cart_path, class: 'ml-4' %>
+
   </div>
 
   <script>
