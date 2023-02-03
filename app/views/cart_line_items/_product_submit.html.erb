@@ -4,13 +4,13 @@
   <div class="horizontal-input-group">
     <div class="horizontal-input-group__input">
       <div class="text-input">
-        <%= text_field_tag :quantity, 1, type: :number, min: 1 %>
+        <%= text_field_tag :quantity, 1, type: :number, min: 1, class: 'input input-bordered' %>
       </div>
     </div>
-    <div class="horizontal-input-group__action">
+    <div class="mt-4">
       <%= button_tag(
         t('spree.add_to_cart'),
-        class: 'button-primary',
+        class: 'btn btn-lg btn-primary',
         id: 'add-to-cart-button'
       ) %>
     </div>

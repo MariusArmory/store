@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="<%= I18n.locale %>">
+<html lang="<%= I18n.locale %>" data-theme="halloween">
   <head>
     <meta charset="utf-8">
     <title><%= title %></title>
@@ -22,7 +22,7 @@
     <%= favicon_link_tag 'favicon.ico' %>
     <%= yield :head %>
   </head>
-  <body class="bg-neutral-300 dark:bg-neutral-900 text-gray-700 dark:text-gray-300 font-medium dark:font-light font-sans" id="<%= @body_id || 'default' %>" data-turbo="false">
+  <body class="" id="<%= @body_id || 'default' %>" data-turbo="false">
     <%= render 'layouts/header', taxons: @taxons, taxon: @taxon %>
     <%= flash_messages %>
     <%= render BreadcrumbsComponent.new(@taxon) %>

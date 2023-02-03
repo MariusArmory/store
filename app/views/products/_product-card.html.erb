@@ -17,12 +17,12 @@
 <% cache cached do %>
   <li class="<%= class_names %>" itemscope itemtype="http://schema.org/Product" id=<%= product_id %>>
     <article>
-      <section class="product-card_image">
+      <section class="">
         <%= link_to render(ImageComponent.new(image: product.gallery.images.first, size: :small, itemprop: "image")), url, itemprop: 'url' %>
       </section>
-      <header class="product-card_header">
+      <header class="">
         <h2>
-          <%= link_to truncate(product.name, length: 50), url, class: 'info', itemprop: "name", title: product.name %>
+          <%= link_to truncate(product.name, length: 50), url, class: '', itemprop: "name", title: product.name %>
         </h2>
       </header>
       <section class="product-card_price" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
