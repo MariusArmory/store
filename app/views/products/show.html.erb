@@ -11,13 +11,13 @@
         <%= render 'product_header', product: @product %>
         <%= render 'product_promotions', product: @product %>
         <%= render 'cart_line_items/form', product: @product %>
-        <%= render 'product_taxons', product: @product %>
       </div>
     </div>
 
-    <div class="mt-10">
+    <div class="my-6 md:my-10">
       <%= render 'product_info', product: @product %>
       <%= render 'product_properties', product_properties: @product_properties %>
+      <%= render 'product_taxons', product: @product %>
     </div>
   </article>
 <% end %>

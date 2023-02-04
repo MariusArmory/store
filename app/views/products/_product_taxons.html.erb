@@ -1,12 +1,12 @@
 <% if !product.taxons.blank? %>
-  <section class="">
-    <h2 class="font-semibold">
+  <section class="mt-6">
+    <h2 class="text-lg font-semibold">
       <%= t('spree.look_for_similar_items') %>:
     </h2>
 
-    <ul class="flex flex-wrap">
+    <ul class="flex flex-wrap mt-2">
       <% product.taxons.each do |taxon| %>
-        <li class="btn btn-secondary btn-sm ml-2">
+        <li class="btn btn-secondary btn-outline btn-sm ml-2">
           <%= link_to taxon.name, taxon_seo_url(taxon) %>
         </li>
       <% end %>
