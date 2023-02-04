@@ -4,10 +4,11 @@ class FilterComponent < ViewComponent::Base
 
   attr_reader :filter, :search_params
 
-  def initialize(filter:, search_params:, checkbox_class:, label_class:)
+  def initialize(filter:, search_params:, checkbox_class:, container_class:, label_class:)
     @filter = filter
     @search_params = search_params || {}
     @checkbox_class = checkbox_class
+    @container_class = container_class
     @label_class = label_class
   end
 
@@ -25,7 +26,7 @@ class FilterComponent < ViewComponent::Base
     return @filter_list if @filter_list
     return if labels.empty?
 
-    @filter_list = content_tag :ul, class: @label_class do
+    @filter_list = content_tag :ul, class: @container_class do
       safe_join(labels.map { |name, value| filter_list_item(name: name, value: value) })
     end
   end
@@ -42,7 +43,7 @@ class FilterComponent < ViewComponent::Base
         class: @checkbox_class
         )
 
-      concat label_tag(id, name)
+      concat label_tag(id, name, class: @label_class)
     end
   end
 
