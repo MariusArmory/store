@@ -5,9 +5,9 @@
     <%= hidden_field_tag 'per_page', params[:per_page] %>
 
     <% filters.each do |filter| %>
-      <%= render(FilterComponent.new(filter: filter, search_params: params[:search])) %>
+      <%= render(FilterComponent.new(filter: filter, search_params: params[:search], checkbox_class: "checkbox checkbox-primary", label_class: "m-1 text-lg")) %>
     <% end %>
 
-    <%= button_tag t("spree.search"), class: 'button-primary button-primary--full-width' %>
+    <%= button_tag t("spree.search"), class: 'btn btn-primary' %>
   <% end %>
 <% end %>

@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 
 class FilterComponent < ViewComponent::Base
-  BASE_CLASS = 'filter'.freeze
-  CSS_CLASS = "#{BASE_CLASS}__list".freeze
 
   attr_reader :filter, :search_params
 
-  def initialize(filter:, search_params:)
+  def initialize(filter:, search_params:, checkbox_class:, label_class:)
     @filter = filter
     @search_params = search_params || {}
+    @checkbox_class = checkbox_class
+    @label_class = label_class
   end
 
   def call
@@ -18,14 +18,14 @@ class FilterComponent < ViewComponent::Base
   private
 
   def filter_list_title
-    content_tag(:h6, title, class: "#{BASE_CLASS}__title") if title
+    content_tag(:h6, title) if title
   end
 
   def filter_list
     return @filter_list if @filter_list
     return if labels.empty?
 
-    @filter_list = content_tag :ul, class: CSS_CLASS do
+    @filter_list = content_tag :ul, class: @label_class do
       safe_join(labels.map { |name, value| filter_list_item(name: name, value: value) })
     end
   end
@@ -38,7 +38,9 @@ class FilterComponent < ViewComponent::Base
         "search[#{filter[:scope].to_s}][]",
         value,
         filter_list_item_checked?(value),
-        id: id)
+        id: id,
+        class: @checkbox_class
+        )
 
       concat label_tag(id, name)
     end

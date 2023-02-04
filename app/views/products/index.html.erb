@@ -1,4 +1,4 @@
-<div class="products">
+<div class="">
   <aside>
     <% if "products" == params[:controller] && @taxon %>
       <%= render 'shared/search/filters', taxon: @taxon %>
@@ -6,7 +6,7 @@
       <%= render 'shared/navigation/taxonomies', taxon: @taxon %>
     <% end %>
   </aside>
-  <section class="products_section">
+  <section class="">
     <% if params[:keywords] %>
       <% if @products.empty? %>
         <h6>

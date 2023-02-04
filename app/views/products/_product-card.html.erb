@@ -16,23 +16,23 @@
 
 <% cache cached do %>
   <li class="<%= class_names %>" itemscope itemtype="http://schema.org/Product" id=<%= product_id %>>
-    <article>
-      <section class="">
+    <article class="card shadow-xl">
+        <figure>
         <%= link_to render(ImageComponent.new(image: product.gallery.images.first, size: :small, itemprop: "image")), url, itemprop: 'url' %>
-      </section>
-      <header class="">
-        <h2>
+        </figure>
+      <div class="card-body">
+        <h2 class="card-title">
           <%= link_to truncate(product.name, length: 50), url, class: '', itemprop: "name", title: product.name %>
         </h2>
-      </header>
-      <section class="product-card_price" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
-        <% if price = product.price_for_options(current_pricing_options)&.money %>
-          <span class="price selling" itemprop="price" content="<%= price.to_d %>">
-            <%= price.to_html %>
-          </span>
-        <% end %>
-        <span itemprop="priceCurrency" content="<%= current_pricing_options.currency %>"></span>
-      </section>
+        <div class="" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+          <% if price = product.price_for_options(current_pricing_options)&.money %>
+            <span class="price selling" itemprop="price" content="<%= price.to_d %>">
+              <%= price.to_html %>
+            </span>
+          <% end %>
+          <span itemprop="priceCurrency" content="<%= current_pricing_options.currency %>"></span>
+        </div>
+      </div>
     </article>
   </li>
 <% end %>
