@@ -2,7 +2,6 @@
 
 class BreadcrumbsComponent < ViewComponent::Base
   SEPARATOR = '&nbsp;&raquo;&nbsp;'.freeze
-  BASE_CLASS = 'breadcrumbs'.freeze
 
   attr_reader :taxon
 
@@ -12,12 +11,9 @@ class BreadcrumbsComponent < ViewComponent::Base
 
   def call
     return if current_page?('/') || taxon.nil?
-
-    content_tag(:div, class: BASE_CLASS) do
-      content_tag(:nav, class: breadcrumb_class) do
-        content_tag(:ol, itemscope: '', itemtype: 'https://schema.org/BreadcrumbList') do
-          raw(items.map(&:mb_chars).join)
-        end
+    content_tag(:nav) do
+      content_tag(:ol, itemscope: '', class: "flex") do
+        raw(items.map(&:mb_chars).join)
       end
     end
   end
@@ -26,7 +22,7 @@ class BreadcrumbsComponent < ViewComponent::Base
 
   def items
     crumbs.map.with_index do |crumb, index|
-      content_tag(:li, itemprop: 'itemListElement', itemscope: '', itemtype: 'https://schema.org/ListItem') do
+      content_tag(:li, itemprop: 'itemListElement', itemscope: '') do
         item_link(crumb, index) + (crumb == crumbs.last ? '' : raw(SEPARATOR))
       end
     end

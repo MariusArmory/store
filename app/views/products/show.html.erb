@@ -1,24 +1,27 @@
 <% @body_id = 'product-details' %>
 
 <% cache [I18n.locale, current_pricing_options, @product] do %>
-  <article class="product-page" itemscope itemtype="http://schema.org/Product">
-    <div class="product-page-row">
-      <div class="product-page__images">
+  <article class="mt-10" itemscope itemtype="http://schema.org/Product">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-4">
+      <div class="md:col-span-8">
+        <%if @product.gallery.images.length > 1%>
+        <%= render 'product_image_carousel', product: @product %>
+        <%else%>
         <%= render 'product_image', product: @product %>
-        <%= render 'product_thumbnails', product: @product %>
+        <%end%>
       </div>
 
-      <div class="product-page__info">
+      <div class="mt-4 md:mt-0 md:col-span-4">
         <%= render 'product_header', product: @product %>
         <%= render 'product_promotions', product: @product %>
         <%= render 'cart_line_items/form', product: @product %>
-        <%= render 'product_taxons', product: @product %>
       </div>
     </div>
 
-    <div class="product-page-row">
+    <div class="my-6 md:my-10">
       <%= render 'product_info', product: @product %>
       <%= render 'product_properties', product_properties: @product_properties %>
+      <%= render 'product_taxons', product: @product %>
     </div>
   </article>
 <% end %>
