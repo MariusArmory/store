@@ -1,8 +1,9 @@
-<picture class="">
+<picture class="w-full h-96">
   <%= render(ImageComponent.new(
     image: product.gallery.images.first,
     size: :product,
     itemprop: "image",
-    data: { js: 'product-main-image' }
+    data: { js: 'product-main-image' },
+    classes: "object-cover w-full h-full"
   )) %>
 </picture>
