@@ -1,0 +1,17 @@
+<div class="carousel w-full h-96">
+<% @product.gallery.images.each_with_index do |image, index|%>
+  <picture class="carousel-item relative w-full h-96" id="slide_<%=index%>">
+    <%= render(ImageComponent.new(
+      image: image,
+      size: :product,
+      itemprop: "image",
+      data: { js: 'product-main-image' },
+      classes: "object-cover w-full h-full"
+    )) %>
+    <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+      <a href="#slide_<%=index === 0 ? @product.images.length - 1 : index - 1%>" class="btn btn-circle">❮</a> 
+      <a href="#slide_<%=index === @product.gallery.images.length - 1 ? 0 : index + 1%>" class="btn btn-circle">❯</a>
+    </div>
+  </picture>
+<%end%>
+</div>
