@@ -1,5 +1,6 @@
-<footer class="border-t-[0.01rem] border-gray-600">
-  <p>
+<footer class="footer">
+
+  <p class="">
     <%= t 'spree.powered_by' %> <%= link_to 'Solidus', 'http://solidus.io/' %>
   </p>
 
@@ -15,7 +16,7 @@
   %>
 
   <% if available_locales.many? %>
-    <div class="locale-selector">
+    <div class="">
       <%= form_tag select_locale_path do %>
         <div class="locale-selector__select-input select-input">
           <%= label_tag :switch_to_locale, "#{t('spree.i18n.language')}:" %>
