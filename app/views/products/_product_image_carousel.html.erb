@@ -1,0 +1,16 @@
+<div class="carousel w-full">
+<% @product.images.each_with_index do |image, index|%>
+  <picture class="carousel-item relative w-full" id="<%index%>">
+    <%= render(ImageComponent.new(
+      image: image,
+      size: :product,
+      itemprop: "image",
+      data: { js: 'product-main-image' }
+    )) %>
+  </picture>
+  <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+    <a href="#<%%>" class="btn btn-circle">❮</a> 
+    <a href="" class="btn btn-circle">❯</a>
+  </div>
+<%end%>
+</div>

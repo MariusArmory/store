@@ -2,13 +2,12 @@
 
 <% cache [I18n.locale, current_pricing_options, @product] do %>
   <article class="mt-10" itemscope itemtype="http://schema.org/Product">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-      <div class="flex">
-        <%= render 'product_thumbnails', product: @product %>
-        <%= render 'product_image', product: @product %>
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-4">
+      <div class="flex md:col-span-8">
+        <%= render 'product_image_carousel', product: @product %>
       </div>
 
-      <div class="">
+      <div class="mt-4 md:mt-0 md:col-span-4">
         <%= render 'product_header', product: @product %>
         <%= render 'product_promotions', product: @product %>
         <%= render 'cart_line_items/form', product: @product %>
@@ -16,7 +15,7 @@
       </div>
     </div>
 
-    <div class="">
+    <div class="mt-10">
       <%= render 'product_info', product: @product %>
       <%= render 'product_properties', product_properties: @product_properties %>
     </div>
