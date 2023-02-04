@@ -16,7 +16,7 @@
 
 <% cache cached do %>
   <li class="<%= class_names %>" itemscope itemtype="http://schema.org/Product" id=<%= product_id %>>
-    <article class="card shadow-xl">
+    <article class="card shadow-xl border border-gray-800">
         <figure>
         <%= link_to render(ImageComponent.new(image: product.gallery.images.first, size: :small, itemprop: "image")), url, itemprop: 'url' %>
         </figure>

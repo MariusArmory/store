@@ -24,9 +24,9 @@
   </head>
   <body class="" id="<%= @body_id || 'default' %>" data-turbo="false">
     <%= render 'layouts/header', taxons: @taxons, taxon: @taxon %>
-    <%= flash_messages %>
-    <%= render BreadcrumbsComponent.new(@taxon) %>
     <main class="mx-4 sm:mx-20 md:mx-28 lg:mx-44 min-h-screen">
+      <%= flash_messages %>
+      <%= render BreadcrumbsComponent.new(@taxon) %>
       <%= yield %>
     </main>
     <%= render 'layouts/footer' %>
