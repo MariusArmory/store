@@ -3,7 +3,7 @@
 <% cache [I18n.locale, current_pricing_options, @product] do %>
   <article class="mt-10" itemscope itemtype="http://schema.org/Product">
     <div class="grid grid-cols-1 md:grid-cols-12 gap-4">
-      <div class="flex md:col-span-8">
+      <div class="md:col-span-8">
         <%= render 'product_image_carousel', product: @product %>
       </div>
 
