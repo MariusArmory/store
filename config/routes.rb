@@ -29,6 +29,9 @@ Rails.application.routes.draw do
     get '/confirm', to: 'user_confirmations#show', as: :confirmation if Spree::Auth::Config[:confirmable]
   end
 
+  # Letter opener for development
+  mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
+
   resource :account, controller: 'users'
 
   resources :products, only: [:index, :show]
