@@ -1,22 +1,22 @@
-<article class="auth-container" id="forgot-password">
-  <h1><%= I18n.t('spree.forgot_password') %></h1>
+<article class="flex flex-col min-h-screen sm:justify-center items-center mt-10 sm:mt-0" id="forgot-password">
+  <div class="card bg-base-100 border border-neutral-foucus p-4 sm:p-10 w-full lg:max-w-xl sm:max-w-md overflow-hidden">
+    <h1 class="font-semibold text-lg"><%= I18n.t('spree.forgot_password') %></h1>
 
-  <%= form_for Spree::User.new, as: :spree_user, url: reset_password_path, html: { class: "auth-form" } do |f| %>
-    <div class="auth-form__input-wrapper">
-      <div class="text-input">
-        <%= f.label :email, "#{t("spree.email")}:" %>
-        <%= f.email_field :email, placeholder: 'name@example.com' %>
-      </div>
-    </div>
+    <%= form_for Spree::User.new, as: :spree_user, url: reset_password_path, html: { class: "auth-form" } do |f| %>
+        <div class="my-4">
+          <%= f.label :email, "#{t("spree.email")}:", class: "mb-2"%>
+          <%= f.email_field :email, placeholder: 'name@example.com', class: "input input-bordered w-full" %>
+        </div>
 
-    <div class="auth-form__input-wrapper">
-      <%= f.button(
-        t("spree.reset_password"),
-        class: 'button-primary button-primary--full-width',
-        name: :commit
-      ) %>
-    </div>
+        <div class="my-4">
+          <%= f.button(
+            t("spree.reset_password"),
+            class: 'btn btn-primary btn-block',
+            name: :commit
+          ) %>
+        </div>
 
-    <%= I18n.t("spree.or") %> <%= link_to I18n.t("spree.create_a_new_account"), signup_path %>
-  <% end %>
+      <%= I18n.t("spree.or") %> <%= link_to I18n.t("spree.create_a_new_account"), signup_path, class: "link"%>
+    <% end %>
+  </div>
 </article>
