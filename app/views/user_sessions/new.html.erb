@@ -1,7 +1,7 @@
 <% @body_id = 'login' %>
 
 <article class="flex flex-col min-h-screen sm:justify-center items-center mt-10 sm:mt-0" id="existing-customer">
-  <div class="card bg-base-100 border border-neutral-foucus p-4 sm:p-10 w-full lg:max-w-xl sm:max-w-md overflow-hidden">
+  <div class="card bg-base-100 border border-gray-700 p-4 sm:p-10 w-full lg:max-w-xl sm:max-w-md overflow-hidden">
   <h1 class="font-semibold text-lg"><%= I18n.t('spree.login_as_existing') %></h1>
 
   <%= form_for Spree::User.new, as: :spree_user, url: create_new_session_path, html: { class: "auth-form" } do |f| %>

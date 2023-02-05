@@ -23,7 +23,7 @@
     <%= favicon_link_tag 'favicon.ico' %>
     <%= yield :head %>
   </head>
-  <body class="" id="<%= @body_id || 'default' %>" data-turbo="false">
+  <body class="bg-base-300" id="<%= @body_id || 'default' %>" data-turbo="false">
     <%= render 'layouts/header', taxons: @taxons, taxon: @taxon %>
     <main class="mx-4 sm:mx-20 md:mx-28 lg:mx-44 min-h-screen">
       <%= flash_messages %>
