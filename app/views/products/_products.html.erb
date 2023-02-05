@@ -21,7 +21,9 @@
 <% end %>
 
 <% if !no_products_found %>
+  <div class="mt-10">
   <%= render 'products/products-grid', products: products %>
+  </div>
 <% end %>
 
 <% if paginated_products.respond_to?(:total_pages) %>
