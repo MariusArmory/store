@@ -33,8 +33,8 @@ gem "jbuilder"
 # Use Redis adapter to run Action Cable in production
 gem "redis", "~> 4.0"
 
-# fontawesome
-gem "font-awesome-sass", "~> 6.2.1"
+# material icons
+gem 'material_icons'
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"

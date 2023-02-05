@@ -138,8 +138,6 @@ GEM
     ffi (1.15.5)
     font-awesome-rails (4.7.0.8)
       railties (>= 3.2, < 8.0)
-    font-awesome-sass (6.2.1)
-      sassc (~> 2.0)
     friendly_id (5.5.0)
       activerecord (>= 4.0.0)
     globalid (1.1.0)
@@ -203,6 +201,8 @@ GEM
       net-pop
       net-smtp
     marcel (1.0.2)
+    material_icons (4.0.0)
+      railties (>= 3.2)
     matrix (0.4.2)
     method_source (1.0.0)
     mime-types (3.4.1)
@@ -473,10 +473,10 @@ DEPENDENCIES
   factory_bot (>= 4.8)
   factory_bot_rails
   ffaker (~> 2.13)
-  font-awesome-sass (~> 6.2.1)
   importmap-rails
   jbuilder
   letter_opener_web (~> 2.0)
+  material_icons
   pg (~> 1.1)
   puma (~> 5.0)
   rails (~> 7.0.4, >= 7.0.4.2)
