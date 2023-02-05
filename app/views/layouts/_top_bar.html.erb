@@ -4,13 +4,12 @@
 
   <div class="hidden sm:block">
     <% if spree_current_user %>
-      <%= link_to I18n.t('spree.my_account'), account_path, class: '' %>
+      <%= link_to I18n.t('spree.account'), account_path, class: '' %>
     <% else %>
       <%= link_to I18n.t('spree.login'), login_path, class: '' %>
     <% end %>
 
-    <%= link_to edit_cart_path, class: 'mi cart ml-4' %>
-    <%= fa_icon "shopping-cart"%>
+    <%= link_to '', edit_cart_path, class: 'text-2xl fa fa-shopping-cart ml-4' %>
   </div>
 
   <div id="nav-dropdown" class="block sm:hidden dropdown dropdown-end">
@@ -18,7 +17,7 @@
     <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52 z-10">
       <% if spree_current_user %>
         <li>
-          <%= link_to I18n.t('spree.my_account'), account_path, class: '' %>
+          <%= link_to I18n.t('spree.account'), account_path, class: '' %>
         </li>
       <% else %>
         <li>
@@ -27,7 +26,7 @@
       <% end %>
 
         <li>
-          <%= link_to t('spree.cart'), edit_cart_path %>
+          <%= link_to '', edit_cart_path, class: 'text-2xl fa fa-shopping-cart' %>
         </li>
     </ul>
   </div>
