@@ -9,7 +9,8 @@
       <%= link_to I18n.t('spree.login'), login_path, class: '' %>
     <% end %>
 
-    <%= link_to t('spree.cart'), edit_cart_path, class: 'ml-4' %>
+    <%= link_to edit_cart_path, class: 'mi cart ml-4' %>
+    <%= fa_icon "shopping-cart"%>
   </div>
 
   <div id="nav-dropdown" class="block sm:hidden dropdown dropdown-end">
