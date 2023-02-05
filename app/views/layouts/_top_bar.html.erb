@@ -1,8 +1,8 @@
-<div class="flex justify-between items-center p-4 border-b-[0.01rem] border-gray-600">
+<div class="flex justify-between items-center p-4 border-b-[0.01rem] border-zinc-700 bg-base-100">
 
   <%= link_to 'Marius Armory', root_path, class: 'font-logo text-3xl select-none' %>
 
-  <div>
+  <div class="hidden sm:block">
     <% if spree_current_user %>
       <%= link_to I18n.t('spree.my_account'), account_path, class: '' %>
     <% else %>
@@ -10,6 +10,25 @@
     <% end %>
 
     <%= link_to t('spree.cart'), edit_cart_path, class: 'ml-4' %>
+  </div>
+
+  <div id="nav-dropdown" class="block sm:hidden dropdown dropdown-end">
+    <label tabindex="0"><i class="fa fa-bars text-xl"></i></label>
+    <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52 z-10">
+      <% if spree_current_user %>
+        <li>
+          <%= link_to I18n.t('spree.my_account'), account_path, class: '' %>
+        </li>
+      <% else %>
+        <li>
+          <%= link_to I18n.t('spree.login'), login_path, class: '' %>
+        </li>
+      <% end %>
+
+        <li>
+          <%= link_to t('spree.cart'), edit_cart_path %>
+        </li>
+    </ul>
   </div>
 
   <script>
