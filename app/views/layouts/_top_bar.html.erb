@@ -2,26 +2,26 @@
 
   <%= link_to 'Marius Armory', root_path, class: 'font-logo text-3xl select-none' %>
 
-  <div class="hidden sm:block">
+  <div class="hidden sm:block text-2xl">
     <% if spree_current_user %>
-      <%= link_to I18n.t('spree.account'), account_path, class: '' %>
+      <%= link_to '', account_path, class: 'fa fa-user' %>
     <% else %>
-      <%= link_to I18n.t('spree.login'), login_path, class: '' %>
+      <%= link_to '', login_path, class: 'fa fa-user' %>
     <% end %>
 
-    <%= link_to '', edit_cart_path, class: 'text-2xl fa fa-shopping-cart ml-4' %>
+    <%= link_to '', edit_cart_path, class: 'fa fa-shopping-cart ml-4' %>
   </div>
 
   <div id="nav-dropdown" class="block sm:hidden dropdown dropdown-end">
     <label tabindex="0"><i class="fa fa-bars text-xl"></i></label>
-    <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52 z-10">
+    <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52 z-10 text-2xl">
       <% if spree_current_user %>
         <li>
-          <%= link_to I18n.t('spree.account'), account_path, class: '' %>
+          <%= link_to '', account_path, class: 'fa fa-user' %>
         </li>
       <% else %>
         <li>
-          <%= link_to I18n.t('spree.login'), login_path, class: '' %>
+          <%= link_to '', login_path, class: 'fa fa-user' %>
         </li>
       <% end %>
 

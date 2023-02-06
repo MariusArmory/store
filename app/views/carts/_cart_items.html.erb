@@ -9,13 +9,24 @@
   )
 %>
 
-<section class="">
-  <%= render(
-    partial: 'carts/cart_item',
-    collection: order.line_items,
-    as: :line_item,
-    locals: { order_form: order_form }
-  ) %>
+<section class="w-full">
+  <table class="table w-full rounded-md">
+    <thead>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td><%= I18n.t('spree.subtotal')%></td> 
+    <thead>
+
+    <tbody>
+    <%= render(
+      partial: 'carts/cart_item',
+      collection: order.line_items,
+      as: :line_item,
+      locals: { order_form: order_form }
+    ) %>
+    </tbody>
+  </table>
 
   <% if is_order_empty %>
     <%= render 'carts/cart_adjustments' %>

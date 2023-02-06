@@ -1,48 +1,52 @@
 <% variant = line_item.variant %>
 
 <%= order_form.fields_for :line_items, line_item do |item_form| %>
-  <article class="flex items-start justify-between flex-wrap">
+  <tr class="border-b border-base-200">
+      <td>
+        <%= link_to(
+          render(ImageComponent.new(
+            image: variant.gallery.images.first || variant.product.gallery.images.first,
+            size: :small
+          )),
+          variant.product,
+          class: 'w-64 h-auto'
+        ) %>
+      </td>
 
-    <section class="flex">
-      <%= link_to(
-        render(ImageComponent.new(
-          image: variant.gallery.images.first || variant.product.gallery.images.first,
-          size: :small
-        )),
-        variant.product,
-        class: 'w-64 h-auto mr-4'
-      ) %>
+      <td>
 
-      <div class="">
-
+        <p class="whitespace-normal">
         <%= render(
           'orders/item_info',
           line_item: line_item,
           variant: variant,
-          classes: ['cart-item__info']
+          classes: ['whitespace-normal']
         ) %>
+        </p>
 
-        <div class="mt-4">
-          <%= item_form.text_field :quantity, type: 'number', min: 0, class: "input max-w-[100px] mr-0 md:mr-2" %>
+        <div class="mt-4 flex items-center flex-wrap">
+          <%= item_form.text_field :quantity, type: 'number', min: 0, class: "input input-bordered w-fit sm:max-w-[100px] mr-0 md:mr-2" %>
 
+          <p>
           <%= order_form.submit(
             'Remove',
             class: 'link link-error',
             id: "delete_#{dom_id(line_item)}",
             data: { disable_with: 'Remove' }
           ) %>
+          </p>
         </div>
 
-      </div>
+      </td>
 
-    </section>
-
-      <div>
+      <td>
       <%= line_item.single_money.to_html %>
-      </div>
+      </td>
 
-    <strong><%= line_item.display_amount.to_html unless line_item.quantity.nil? %></strong>
-  </article>
+    <td>
+      <strong><%= line_item.display_amount.to_html unless line_item.quantity.nil? %></strong>
+    </td>
 
-  <div class="divider"></div>
+  </tr>
+
 <% end %>
