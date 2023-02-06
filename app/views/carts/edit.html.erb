@@ -7,17 +7,21 @@
     <%= form_for @order, url: cart_path, html: {id: 'update-cart'} do |order_form| %>
       <% order = order_form.object %>
       <%= render 'carts/cart_header', order_form: order_form %>
+      
+      <section class="flex justify-end">
+        <h2 class=""><%= t('spree.subtotal') %></h2>
+      </section>
+
+      <div class="divider"></div>
       <%= render 'shared/error_messages', target: order %>
       <%= render 'carts/cart_items', order_form: order_form %>
+
       <%= render 'carts/cart_footer', order_form: order_form %>
     <% end %>
 
-    <div class="cart-page__other-actions">
+    <div class="">
       <%= render 'carts/cart_secondary_actions' %>
-
-      <div class="">
-        <%= render 'orders/coupon_code' %>
-      </div>
+      <%= render 'orders/coupon_code' %>
     </div>
   <% end %>
 </article>

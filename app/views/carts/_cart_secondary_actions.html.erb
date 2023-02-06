@@ -1,13 +1,9 @@
-<div class="flex items-center justify-between align-center my-10">
-    <%= link_to t('spree.continue_shopping'), products_path, class: "link" %>
-
-  <div class="cart-secondary-actions__empty">
-    <%= form_tag empty_cart_path, method: :put do %>
-      <%= button_tag(
-        t('spree.empty_cart'),
-        class: 'link link-error',
-        name: :commit
-      ) %>
-    <% end %>
-  </div>
+<div class="">
+  <%= form_tag empty_cart_path, method: :put do %>
+    <%= button_tag(
+      t('spree.empty_cart'),
+      class: 'link link-error',
+      name: :commit
+    ) %>
+  <% end %>
 </div>

@@ -1,7 +1,7 @@
 <% variant = line_item.variant %>
 
 <%= order_form.fields_for :line_items, line_item do |item_form| %>
-  <article class="flex items-center justify-between my-6">
+  <article class="flex items-start justify-between flex-wrap">
 
     <section class="flex">
       <%= link_to(
@@ -10,10 +10,11 @@
           size: :small
         )),
         variant.product,
-        class: 'h-32 w-32 mr-4'
+        class: 'w-64 h-auto mr-4'
       ) %>
 
-      <div class="flex flex-col">
+      <div class="">
+
         <%= render(
           'orders/item_info',
           line_item: line_item,
@@ -21,17 +22,17 @@
           classes: ['cart-item__info']
         ) %>
 
+        <div class="mt-4">
+          <%= item_form.text_field :quantity, type: 'number', min: 0, class: "input max-w-[100px] mr-0 md:mr-2" %>
 
-        <div>
-        <%= item_form.text_field :quantity, type: 'number', min: 0, class: "input" %>
-
-        <%= order_form.submit(
-          'Remove',
-          class: 'link link-error',
-          id: "delete_#{dom_id(line_item)}",
-          data: { disable_with: 'Remove' }
-        ) %>
+          <%= order_form.submit(
+            'Remove',
+            class: 'link link-error',
+            id: "delete_#{dom_id(line_item)}",
+            data: { disable_with: 'Remove' }
+          ) %>
         </div>
+
       </div>
 
     </section>

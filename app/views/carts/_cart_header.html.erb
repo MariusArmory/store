@@ -1,4 +1,4 @@
-<header class="cart-header">
+<header class="flex justify-between items-center">
   <h1 class="text-xl font-semibold my-10">
     <%= t('spree.shopping_cart') %>
   </h1>
@@ -6,7 +6,7 @@
   <div class="">
     <%= order_form.button(
       t("spree.update"),
-      class: 'btn btn-primary btn-small',
+      class: 'btn btn-small',
       id: 'update-button'
     ) %>
   </div>
