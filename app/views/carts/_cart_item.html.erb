@@ -42,11 +42,11 @@
       </div>
     </div>
 
-    <div class="flex justify-end">
+    <div class="flex justify-end items-center md:items-start">
       <p class="mr-2 md:hidden">
         <%= I18n.t('spree.subtotal') %>:
       </p>
-      <strong><%= line_item.display_amount.to_html unless line_item.quantity.nil? %></strong>
+      <p class="text-xl font-semibold"><%= line_item.display_amount.to_html unless line_item.quantity.nil? %></p>
     </div>
   </div>
 <% end %>
