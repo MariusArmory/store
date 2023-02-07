@@ -1,15 +1,17 @@
 <%= form_tag order_coupon_codes_path(@order), method: :post, class: "coupon-code" do %>
-      <%= text_field_tag 'coupon_code',
-        nil,
-        id: 'order_coupon_code',
-        placeholder: t("spree.coupon_code"),
-        required: true,
-        class: 'input'
-      %>
+  <div class="input-group ">
+    <%= text_field_tag 'coupon_code',
+      nil,
+      id: 'order_coupon_code',
+      placeholder: t("spree.coupon_code"),
+      required: true,
+      class: 'input'
+    %>
 
-    <%= button_tag(
-      t('spree.apply_code'),
-      class: 'btn btn-secondary btn-small',
-      name: :commit
-    ) %>
+  <%= button_tag(
+    t('spree.apply_code'),
+    class: 'btn btn-secondary btn-small',
+    name: :commit
+  ) %>
+  </div>
 <% end %>

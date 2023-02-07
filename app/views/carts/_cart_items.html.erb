@@ -9,24 +9,18 @@
   )
 %>
 
-<section class="w-full">
-  <table class="table w-full rounded-md">
-    <thead>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td><%= I18n.t('spree.subtotal')%></td> 
-    <thead>
-
-    <tbody>
-    <%= render(
-      partial: 'carts/cart_item',
-      collection: order.line_items,
-      as: :line_item,
-      locals: { order_form: order_form }
-    ) %>
-    </tbody>
-  </table>
+<section class="w-full flex flex-col">
+  
+  <div class="hidden md:flex justify-end">
+  <h2 class="font-semibold text-xl"><%= I18n.t('spree.subtotal') %>:</h2>
+  </div>
+        <div class="divider"></div>
+  <%= render(
+    partial: 'carts/cart_item',
+    collection: order.line_items,
+    as: :line_item,
+    locals: { order_form: order_form }
+  ) %>
 
   <% if is_order_empty %>
     <%= render 'carts/cart_adjustments' %>

@@ -1,52 +1,52 @@
 <% variant = line_item.variant %>
 
 <%= order_form.fields_for :line_items, line_item do |item_form| %>
-  <tr class="border-b border-base-200">
-      <td>
-        <%= link_to(
-          render(ImageComponent.new(
-            image: variant.gallery.images.first || variant.product.gallery.images.first,
-            size: :small
-          )),
-          variant.product,
-          class: 'w-64 h-auto'
-        ) %>
-      </td>
+  <div class="grid grid-cols-2 md:grid-cols-3 gap-4 w-full">
 
-      <td>
+    <div>
+    <%= link_to(
+      render(ImageComponent.new(
+        image: variant.gallery.images.first || variant.product.gallery.images.first,
+        size: :small
+      )),
+      variant.product,
+      class: 'w-64 h-auto pr-4'
+    ) %>
+    </div>
 
-        <p class="whitespace-normal">
-        <%= render(
-          'orders/item_info',
-          line_item: line_item,
-          variant: variant,
-          classes: ['whitespace-normal']
+    <div>
+      <p class="whitespace-normal">
+      <%= render(
+        'orders/item_info',
+        line_item: line_item,
+        variant: variant,
+        classes: ['whitespace-normal']
+      ) %>
+      </p>
+
+      <p class="mt-4">
+      <%= line_item.single_money.to_html %>
+      </p>
+
+      <div class="mt-4 flex items-center flex-wrap">
+        <%= item_form.text_field :quantity, type: 'number', min: 0, class: "input input-bordered w-fit max-w-[100px] mr-0 md:mr-2" %>
+
+        <p>
+        <%= order_form.submit(
+          'Remove',
+          class: 'link link-error',
+          id: "delete_#{dom_id(line_item)}",
+          data: { disable_with: 'Remove' }
         ) %>
         </p>
+      </div>
+    </div>
 
-        <div class="mt-4 flex items-center flex-wrap">
-          <%= item_form.text_field :quantity, type: 'number', min: 0, class: "input input-bordered w-fit sm:max-w-[100px] mr-0 md:mr-2" %>
-
-          <p>
-          <%= order_form.submit(
-            'Remove',
-            class: 'link link-error',
-            id: "delete_#{dom_id(line_item)}",
-            data: { disable_with: 'Remove' }
-          ) %>
-          </p>
-        </div>
-
-      </td>
-
-      <td>
-      <%= line_item.single_money.to_html %>
-      </td>
-
-    <td>
+    <div class="flex justify-end">
+      <p class="mr-2 md:hidden">
+        <%= I18n.t('spree.subtotal') %>:
+      </p>
       <strong><%= line_item.display_amount.to_html unless line_item.quantity.nil? %></strong>
-    </td>
-
-  </tr>
-
+    </div>
+  </div>
 <% end %>

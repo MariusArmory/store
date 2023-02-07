@@ -1,6 +1,6 @@
 <% @body_id = 'cart' %>
 
-<article class="card bg-base-300 p-4 md:p-10">
+<article class="card flex flex-col bg-base-300 p-4 md:p-10">
   <% if @order.line_items.empty? %>
     <%= render 'carts/cart_empty' %>
   <% else %>
@@ -8,7 +8,6 @@
       <% order = order_form.object %>
       <%= render 'carts/cart_header', order_form: order_form %>
       
-      <div class="divider"></div>
 
       <%= render 'shared/error_messages', target: order %>
       <%= render 'carts/cart_items', order_form: order_form %>
@@ -18,9 +17,6 @@
       <%= render 'carts/cart_footer', order_form: order_form %>
     <% end %>
 
-    <div class="">
-      <%= render 'carts/cart_secondary_actions' %>
-      <%= render 'orders/coupon_code' %>
-    </div>
+    <%= render 'orders/coupon_code' %>
   <% end %>
 </article>
