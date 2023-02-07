@@ -1,8 +1,8 @@
 <%= form_for order, url: update_checkout_path(order.state), html: { id: "checkout_form_#{order.state}" } do |form| %>
   <% if order.state == "address" || !order.email? %>
-    <div class="text-input">
+    <div class="card flex flex-col bg-base-300 p-4 md:p-10 mb-10">
       <%= form.label :email, 'Customer E-Mail:' %>
-      <%= form.email_field :email, required: true, placeholder: 'name@example.com' %>
+      <%= form.email_field :email, required: true, placeholder: 'name@example.com', class: "input input-bordered" %>
     </div>
   <% end %>
 

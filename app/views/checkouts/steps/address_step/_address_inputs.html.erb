@@ -1,32 +1,32 @@
-<div class="address-inputs">
-  <div class="text-input">
+<div class="card flex flex-col bg-base-300 p-4 md:p-10 mb-10">
+  <div class="flex flex-col">
     <%= form.label :name, "#{I18n.t("spree.name")}:" %>
-    <%= form.text_field :name, required: true, autofocus: true, autocomplete: "#{address_type} given-name" %>
+    <%= form.text_field :name, required: true, autofocus: true, autocomplete: "#{address_type} given-name", class: "input input-bordered" %>
   </div>
 
   <% if Spree::Config[:company] %>
-    <div class="text-input">
+    <div class="flex flex-col">
       <%= form.label :company, "#{I18n.t("spree.company")}:" %>
-      <%= form.text_field :company, autocomplete: "#{address_type} organization" %>
+      <%= form.text_field :company, autocomplete: "#{address_type} organization", class: "input input-bordered" %>
     </div>
   <% end %>
 
-  <div class="text-input">
+  <div class="flex flex-col">
     <%= form.label :address1, "#{I18n.t("spree.street_address")}:" %>
-    <%= form.text_field :address1, required: true, autocomplete: "#{address_type} address-line1" %>
+    <%= form.text_field :address1, required: true, autocomplete: "#{address_type} address-line1", class: "input input-bordered" %>
   </div>
 
-  <div class="text-input">
+  <div class="flex flex-col">
     <%= form.label :address2, "#{I18n.t("spree.street_address_2")}:" %>
-    <%= form.text_field :address2, autocomplete: "#{address_type} address-line2" %>
+    <%= form.text_field :address2, autocomplete: "#{address_type} address-line2", class: "input input-bordered" %>
   </div>
 
-  <div class="text-input">
+  <div class="flex flex-col">
     <%= form.label :city, "#{I18n.t("spree.city")}:" %>
-    <%= form.text_field :city, required: true, autocomplete: "#{address_type} address-level2" %>
+    <%= form.text_field :city, required: true, autocomplete: "#{address_type} address-level2", class: "input input-bordered" %>
   </div>
 
-  <div class="select-input">
+  <div class="flex flex-col">
     <%= form.label :country_id, "#{I18n.t("spree.country")}:" %>
 
     <%= form.collection_select(
@@ -36,7 +36,7 @@
       :name,
       {},
       autocomplete: "#{address_type} country-name",
-      class: 'js-trigger-state-change',
+      class: 'js-trigger-state-change, select select-bordered',
       required: true,
       "data-state-container": "##{address_type} .js-address-fields"
     ) %>
@@ -56,9 +56,9 @@
           :name,
           { include_blank: true },
           autocomplete: "#{address_type} address-level1",
-          class: 'required',
+          class: 'required select select-bordered',
           disabled: !have_states,
-          required: false
+          required: false,
         ) %>
       </div>
 
@@ -67,7 +67,8 @@
         class: !have_states ? 'required' : '',
         style: have_states ? 'display: none;' : '',
         disabled: have_states,
-        autocomplete: "#{address_type} address-level1"
+        autocomplete: "#{address_type} address-level1",
+        class: "textarea textarea-bordered"
       ) %>
     </span>
     <noscript>
@@ -75,33 +76,36 @@
         :state_name,
         class: 'required',
         autocomplete: "#{address_type} address-level1",
-        required: true
+        required: true,
+        class: "input input-bordered"
       ) %>
     </noscript>
   <% end %>
 
-  <div class="text-input">
+  <div class="flex flex-col">
     <%= form.label :zipcode, "#{I18n.t("spree.zip")}:" %>
 
     <%= form.text_field :zipcode,
       required: address.require_zipcode?,
-      autocomplete: "#{address_type} postal-code"
+      autocomplete: "#{address_type} postal-code",
+      class: "input input-bordered"
     %>
   </div>
 
-  <div class="text-input">
+  <div class="flex flex-col">
     <%= form.label :phone, "#{I18n.t("spree.phone")}:" %>
 
     <%= form.telephone_field :phone,
       required: address.require_phone?,
-      autocomplete: "#{address_type} home tel"
+      autocomplete: "#{address_type} home tel",
+      class: "input input-bordered"
     %>
   </div>
 
   <% if Spree::Config[:alternative_shipping_phone] %>
     <div class="text-input">
       <%= form.label :alternative_phone, "#{I18n.t("spree.alternative_phone")}:" %>
-      <%= form.telephone_field :alternative_phone, autocomplete: "#{address_type} tel" %>
+      <%= form.telephone_field :alternative_phone, autocomplete: "#{address_type} tel", class: "input input-bordered" %>
     </div>
   <% end %>
 </div>
