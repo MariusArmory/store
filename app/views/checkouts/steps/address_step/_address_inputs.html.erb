@@ -56,7 +56,7 @@
           :name,
           { include_blank: true },
           autocomplete: "#{address_type} address-level1",
-          class: 'required select select-bordered',
+          class: ' select select-bordered',
           disabled: !have_states,
           required: false,
         ) %>
@@ -64,11 +64,12 @@
 
       <%= form.text_field(
         :state_name,
-        class: !have_states ? 'required' : '',
+        class: !have_states ? '' : '',
         style: have_states ? 'display: none;' : '',
         disabled: have_states,
         autocomplete: "#{address_type} address-level1",
-        class: "textarea textarea-bordered"
+        class: "textarea textarea-bordered",
+        required: false
       ) %>
     </span>
     <noscript>

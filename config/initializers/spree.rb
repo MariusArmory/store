@@ -8,6 +8,8 @@ Spree.config do |config|
   # Core:
   # Default currency for new sites
   config.currency = "USD"
+  config.address_requires_state = false
+
 
   # Uncomment to stop tracking inventory levels in the application
   # config.track_inventory_levels = false
