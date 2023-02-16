@@ -64,18 +64,15 @@
 
       <%= form.text_field(
         :state_name,
-        class: !have_states ? '' : '',
-        style: have_states ? 'display: none;' : '',
+        class: 'input input-bordered',
         disabled: have_states,
         autocomplete: "#{address_type} address-level1",
-        class: "textarea textarea-bordered",
         required: false
       ) %>
     </span>
     <noscript>
       <%= form.text_field(
         :state_name,
-        class: 'required',
         autocomplete: "#{address_type} address-level1",
         required: true,
         class: "input input-bordered"
