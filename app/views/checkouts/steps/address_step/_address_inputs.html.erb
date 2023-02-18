@@ -1,4 +1,4 @@
-<div class="card flex flex-col bg-base-300 p-4 md:p-10 mb-10">
+<div class="card flex flex-col bg-base-300 p-4 md:p-10 mb-10" data-controller="address">
   <div class="flex flex-col">
     <%= form.label :name, "#{I18n.t("spree.name")}:" %>
     <%= form.text_field :name, required: true, autofocus: true, autocomplete: "#{address_type} given-name", class: "input input-bordered" %>
@@ -45,6 +45,8 @@
   <% if Spree::Config[:address_requires_state] %>
     <% have_states = !address.country.states.empty? %>
 
+    <div id="checkout_form_address">
+
     <span class="js-address-fields" style="display: none;">
       <div class="select-input">
         <%= form.label :state_id, "#{I18n.t("spree.state")}:" %>
@@ -56,7 +58,7 @@
           :name,
           { include_blank: true },
           autocomplete: "#{address_type} address-level1",
-          class: ' select select-bordered',
+          class: 'select select-bordered',
           disabled: !have_states,
           required: false,
         ) %>
@@ -78,6 +80,7 @@
         class: "input input-bordered"
       ) %>
     </noscript>
+    </div>
   <% end %>
 
   <div class="flex flex-col">
