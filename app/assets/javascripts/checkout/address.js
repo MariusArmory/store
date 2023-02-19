@@ -1,5 +1,6 @@
 window.addEventListener('DOMContentLoaded', () => {
   if (document.getElementById('checkout_form_address')) {
+  alert('Hello from address.js')
     // Hidden by default to support browsers with javascript disabled
     document.querySelectorAll('.js-address-fields')
       .forEach(field => field.style.display = 'block');
